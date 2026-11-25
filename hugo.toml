@@ -3,7 +3,7 @@
 # 部署到 Cloudflare Pages 后，把 baseURL 改成你的实际地址
 # 例如 https://your-project.pages.dev/
 # ===========================================
-baseURL = "https://personal-site.pages.dev/"
+baseURL = "https://online7875.pages.dev/"
 title = "产品手记"
 theme = "PaperMod"
 
