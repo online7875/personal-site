@@ -1,0 +1,64 @@
+{{- define "main" }}
+
+{{- /* 首屏：复用主题的个人卡片渲染 */}}
+{{- partial "index_profile.html" . }}
+
+{{- $projects := where site.RegularPages "Section" "projects" }}
+{{- with $projects }}
+<section class="hub-section">
+  <div class="hub-section-head">
+    <h2>精选项目</h2>
+    <a class="hub-more" href="{{ "projects/" | relURL }}">全部项目 →</a>
+  </div>
+  <div class="hub-grid">
+    {{- range first 3 (.ByWeight) }}
+    {{- $p := . }}
+    <article class="hub-card">
+      {{- with .Params.cover.image }}
+      <a class="hub-card-media" href="{{ $p.RelPermalink }}" tabindex="-1">
+        <img src="{{ . | relURL }}" alt="{{ $p.Title }}" loading="lazy">
+      </a>
+      {{- end }}
+      <div class="hub-card-body">
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        <p>{{ .Summary | plainify | truncate 80 }}</p>
+        {{- with .Params.tags }}
+        <div class="hub-card-tags">
+          {{- range first 3 . }}<span>{{ . }}</span>{{ end }}
+        </div>
+        {{- end }}
+      </div>
+    </article>
+    {{- end }}
+  </div>
+</section>
+{{- end }}
+
+{{- $posts := where site.RegularPages "Section" "posts" }}
+{{- with $posts }}
+<section class="hub-section">
+  <div class="hub-section-head">
+    <h2>最近更新</h2>
+    <a class="hub-more" href="{{ "posts/" | relURL }}">全部文章 →</a>
+  </div>
+  <div class="hub-list">
+    {{- range first 4 (($posts.ByDate).Reverse) }}
+    <a class="hub-item" href="{{ .RelPermalink }}">
+      <span class="hub-item-date">{{ .Date.Format "2006-01-02" }}</span>
+      <span class="hub-item-title">{{ .Title }}</span>
+      {{- if .Params.tags }}<span class="hub-item-tag">{{ index .Params.tags 0 }}</span>{{ end }}
+    </a>
+    {{- end }}
+  </div>
+</section>
+{{- end }}
+
+{{- with site.Params.contactEmail }}
+<section class="hub-cta">
+  <h2>想聊聊产品，或者一起做点东西</h2>
+  <p>支付清结算、灵活用工、跨境合规、AI 应用落地，都欢迎直接找我。</p>
+  <a class="hub-cta-btn" href="mailto:{{ . }}">发邮件给我</a>
+</section>
+{{- end }}
+
+{{- end }}{{/* end main */}}

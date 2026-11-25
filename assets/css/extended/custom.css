@@ -1,0 +1,289 @@
+/* ===========================================================
+   PaperMod 自定义样式（放在 assets/css/extended/ 会被自动合并）
+   主色：深蓝 + 青绿点缀，浅色/暗色模式通用
+   =========================================================== */
+
+:root {
+  --accent: #0e8a84;
+  --accent-soft: rgba(14, 138, 132, 0.12);
+  --card-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+:root[data-theme="dark"] {
+  --accent: #4fd1c5;
+  --accent-soft: rgba(79, 209, 197, 0.14);
+  --card-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.36);
+}
+
+/* ---------- 首屏个人卡片 ---------- */
+/* 主题默认让 profile 撑满整屏，首页还要接内容区，这里收窄 */
+.main .profile {
+  min-height: auto;
+  padding: 3.5rem var(--gap) 1.5rem;
+}
+
+.profile_inner img {
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  box-shadow: 0 0 0 6px var(--accent-soft);
+  object-fit: cover;
+}
+
+.profile_inner h1 {
+  font-size: 1.9rem;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+.profile_inner span {
+  color: var(--secondary);
+  max-width: 34rem;
+  display: inline-block;
+}
+
+.profile .button {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.profile .button:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+/* ---------- 首页板块 ---------- */
+.hub-section {
+  max-width: var(--main-width);
+  margin: 3rem auto 0;
+  padding: 0 var(--gap);
+}
+
+.hub-section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.hub-section-head h2 {
+  font-size: 1.15rem;
+  margin: 0;
+  padding-left: 0.6rem;
+  border-left: 3px solid var(--accent);
+  line-height: 1.2;
+}
+
+.hub-more {
+  font-size: 0.8rem;
+  color: var(--secondary);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.hub-more:hover {
+  color: var(--accent);
+}
+
+/* ---------- 项目卡片 ---------- */
+.hub-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.hub-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--entry);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.hub-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+}
+
+.hub-card-media img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+}
+
+.hub-card-body {
+  padding: 0.9rem 1rem 1.1rem;
+}
+
+.hub-card-body h3 {
+  font-size: 1rem;
+  margin: 0 0 0.4rem;
+  line-height: 1.4;
+}
+
+.hub-card-body h3 a {
+  text-decoration: none;
+  color: var(--primary);
+}
+
+.hub-card-body p {
+  font-size: 0.84rem;
+  color: var(--secondary);
+  margin: 0 0 0.6rem;
+  line-height: 1.6;
+}
+
+.hub-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.hub-card-tags span {
+  font-size: 0.7rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+/* ---------- 项目页卡片 ---------- */
+.hub-grid-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 900px;
+  margin: 2rem auto 4rem;
+  padding: 0 var(--gap);
+}
+
+.hub-intro {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 var(--gap);
+}
+
+/* ---------- 最近更新 ---------- */
+.hub-list {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--entry);
+  overflow: hidden;
+}
+
+.hub-item {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.2s ease;
+}
+
+.hub-item:last-child {
+  border-bottom: 0;
+}
+
+.hub-item:hover {
+  background: var(--accent-soft);
+}
+
+.hub-item-date {
+  font-size: 0.75rem;
+  color: var(--tertiary);
+  font-variant-numeric: tabular-nums;
+  flex: none;
+}
+
+.hub-item-title {
+  font-size: 0.92rem;
+  color: var(--primary);
+}
+
+.hub-item-tag {
+  margin-left: auto;
+  font-size: 0.7rem;
+  color: var(--secondary);
+  flex: none;
+}
+
+/* ---------- 联系我 ---------- */
+.hub-cta {
+  max-width: var(--main-width);
+  margin: 3rem auto 4rem;
+  padding: 1.6rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--entry);
+  text-align: center;
+  box-shadow: var(--card-shadow);
+}
+
+.hub-cta h2 {
+  font-size: 1.1rem;
+  margin: 0 0 0.5rem;
+}
+
+.hub-cta p {
+  color: var(--secondary);
+  font-size: 0.88rem;
+  margin: 0 0 1.1rem;
+}
+
+.hub-cta-btn {
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.88rem;
+  text-decoration: none;
+}
+
+.hub-cta-btn:hover {
+  opacity: 0.9;
+}
+
+/* ---------- 列表页卡片微调 ---------- */
+.post-entry {
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.post-entry:hover {
+  border-color: var(--accent);
+}
+
+/* ---------- 响应式 ---------- */
+@media (max-width: 860px) {
+  .hub-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hub-card-media img {
+    aspect-ratio: 16 / 9;
+  }
+
+  .hub-item {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .hub-item-tag {
+    margin-left: 0;
+  }
+}
+
+/* ---------- (开发环境) 评论未配置提示 ---------- */
+.giscus-hint {
+  max-width: var(--main-width);
+  margin: 2rem auto;
+  padding: 0.9rem 1rem;
+  font-size: 0.82rem;
+  color: var(--secondary);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+}

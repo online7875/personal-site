@@ -1,0 +1,26 @@
+{{- /* Giscus 评论：在 hugo.toml 的 [params.giscus] 填好 repo / repoId / categoryId 后自动启用 */ -}}
+{{- $g := site.Params.giscus -}}
+{{- if and $g $g.repoId -}}
+<div class="giscus-wrap">
+  <script src="https://giscus.app/client.js"
+    data-repo="{{ $g.repo }}"
+    data-repo-id="{{ $g.repoId }}"
+    data-category="{{ $g.category }}"
+    data-category-id="{{ $g.categoryId }}"
+    data-mapping="{{ $g.mapping | default "pathname" }}"
+    data-strict="{{ $g.strict | default "0" }}"
+    data-reactions-enabled="{{ $g.reactionsEnabled | default "1" }}"
+    data-emit-metadata="{{ $g.emitMetadata | default "0" }}"
+    data-input-position="{{ $g.inputPosition | default "bottom" }}"
+    data-theme="{{ $g.theme | default "preferred_color_scheme" }}"
+    data-lang="{{ $g.lang | default "zh-CN" }}"
+    data-loading="{{ $g.loading | default "lazy" }}"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div>
+{{- else if hugo.IsDevelopment -}}
+<div class="giscus-hint">
+  Giscus 评论还没配置：在 <code>hugo.toml</code> 的 <code>[params.giscus]</code> 填入 repo / repoId / categoryId 后即可启用。
+</div>
+{{- end -}}

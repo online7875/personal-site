@@ -1,0 +1,165 @@
+# ===========================================
+# 站点基础配置
+# 部署到 Cloudflare Pages 后，把 baseURL 改成你的实际地址
+# 例如 https://your-project.pages.dev/
+# ===========================================
+baseURL = "https://personal-site.pages.dev/"
+title = "产品手记"
+theme = "PaperMod"
+
+defaultContentLanguage = "zh"
+locale = "zh-CN"
+hasCJKLanguage = true
+
+enableRobotsTXT = true
+enableEmoji = true
+
+[pagination]
+  pagerSize = 8
+
+# home 输出 JSON 是站内搜索需要的
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3
+
+# ===========================================
+# 站点参数
+# ===========================================
+[params]
+  env = "production"
+  description = "支付清结算 / 灵活用工 / 跨境支付方向的产品经理，记录产品实践、技术折腾与思考。"
+  keywords = ["产品经理", "支付清结算", "灵活用工", "跨境支付", "AI Agent"]
+  author = "你的名字"
+  defaultTheme = "auto"
+  DateFormat = "2006-01-02"
+
+  ShowReadingTime = true
+  ShowShareButtons = false
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowWordCount = false
+  ShowRssButtonInSectionTermList = true
+  UseHugoToc = true
+
+  # 默认开启评论，单页可用 comments: false 关闭
+  comments = true
+  mainSections = ["posts"]
+
+  # 首页 CTA 的邮箱，改成你的
+  contactEmail = "you@example.com"
+
+  # ---------- 首页个人卡片 ----------
+  [params.profileMode]
+    enabled = true
+    # 想显示名字就改这里，例如 title = "李雷"
+    title = "产品经理 · 支付清结算与灵活用工"
+    subtitle = "把复杂业务拆成可复用的产品能力"
+    imageUrl = "avatar.jpg"
+    imageTitle = "头像"
+    imageWidth = 132
+    imageHeight = 132
+
+    [[params.profileMode.buttons]]
+      name = "关于我"
+      url = "/about/"
+
+    [[params.profileMode.buttons]]
+      name = "项目作品"
+      url = "/projects/"
+
+    [[params.profileMode.buttons]]
+      name = "写点东西"
+      url = "/posts/"
+
+  # ---------- 社交图标 ----------
+  [[params.socialIcons]]
+    name = "github"
+    title = "GitHub"
+    url = "https://github.com/yourname"
+
+  [[params.socialIcons]]
+    name = "linkedin"
+    title = "LinkedIn"
+    url = "https://www.linkedin.com/in/yourname"
+
+  [[params.socialIcons]]
+    name = "rss"
+    title = "RSS"
+    url = "/index.xml"
+
+  # ---------- 图标 / 主题色 ----------
+  [params.assets]
+    favicon = "favicon-32x32.png"
+    favicon16x16 = "favicon-16x16.png"
+    favicon32x32 = "favicon-32x32.png"
+    apple_touch_icon = "apple-touch-icon.png"
+    safari_pinned_tab = "safari-pinned-tab.svg"
+    theme_color = "#141a24"
+    msapplication_TileColor = "#141a24"
+
+  # ---------- Giscus 评论 ----------
+  # 到 https://giscus.app 生成下面四个值后填入即可启用
+  # repo 形如 "yourname/personal-site"，repoId / categoryId 是 giscus.app 给出的 ID
+  [params.giscus]
+    repo = ""
+    repoId = ""
+    category = "Announcements"
+    categoryId = ""
+    mapping = "pathname"
+    strict = "0"
+    reactionsEnabled = "1"
+    emitMetadata = "0"
+    inputPosition = "bottom"
+    theme = "preferred_color_scheme"
+    lang = "zh-CN"
+    loading = "lazy"
+
+  # ---------- 站内搜索 ----------
+  [params.fuseOpts]
+    isCaseSensitive = false
+    shouldSort = true
+    includeScore = true
+    minMatchCharLength = 1
+    keys = ["title", "permalink", "summary", "content"]
+    threshold = 0.4
+    ignoreLocation = true
+
+# ===========================================
+# 导航菜单
+# ===========================================
+[[menu.main]]
+  identifier = "home"
+  name = "首页"
+  url = "/"
+  weight = 1
+
+[[menu.main]]
+  identifier = "about"
+  name = "关于"
+  url = "/about/"
+  weight = 2
+
+[[menu.main]]
+  identifier = "projects"
+  name = "项目"
+  url = "/projects/"
+  weight = 3
+
+[[menu.main]]
+  identifier = "posts"
+  name = "博客"
+  url = "/posts/"
+  weight = 4
+
+[[menu.main]]
+  identifier = "search"
+  name = "搜索"
+  url = "/search/"
+  weight = 5

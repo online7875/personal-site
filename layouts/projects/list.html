@@ -1,0 +1,37 @@
+{{- define "main" }}
+
+<header class="page-header">
+  {{- partial "breadcrumbs.html" . }}
+  <h1>{{ .Title }}</h1>
+  {{- with .Description }}
+  <div class="post-description">{{ . | markdownify }}</div>
+  {{- end }}
+</header>
+
+{{- with .Content }}
+<div class="post-content md-content hub-intro">{{ . }}</div>
+{{- end }}
+
+<div class="hub-grid hub-grid-2">
+  {{- range .RegularPages.ByWeight }}
+  {{- $p := . }}
+  <article class="hub-card">
+    {{- with .Params.cover.image }}
+    <a class="hub-card-media" href="{{ $p.RelPermalink }}" tabindex="-1">
+      <img src="{{ . | relURL }}" alt="{{ $p.Title }}" loading="lazy">
+    </a>
+    {{- end }}
+    <div class="hub-card-body">
+      <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+      <p>{{ .Summary | plainify | truncate 100 }}</p>
+      {{- with .Params.tags }}
+      <div class="hub-card-tags">
+        {{- range first 3 . }}<span>{{ . }}</span>{{ end }}
+      </div>
+      {{- end }}
+    </div>
+  </article>
+  {{- end }}
+</div>
+
+{{- end }}{{/* end main */}}
