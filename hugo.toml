@@ -35,7 +35,7 @@ enableEmoji = true
   env = "production"
   description = "支付清结算 / 灵活用工 / 跨境支付方向的产品经理，记录产品实践、技术折腾与思考。"
   keywords = ["产品经理", "支付清结算", "灵活用工", "跨境支付", "AI Agent"]
-  author = "你的名字"
+  author = "WaWa"
   defaultTheme = "auto"
   DateFormat = "2006-01-02"
 
@@ -53,13 +53,13 @@ enableEmoji = true
   mainSections = ["posts"]
 
   # 首页 CTA 的邮箱，改成你的
-  contactEmail = "you@example.com"
+  contactEmail = "online7875@gmail.com"
 
   # ---------- 首页个人卡片 ----------
   [params.profileMode]
     enabled = true
     # 想显示名字就改这里，例如 title = "李雷"
-    title = "产品经理 · 支付清结算与灵活用工"
+    title = "WaWa"
     subtitle = "把复杂业务拆成可复用的产品能力"
     imageUrl = "avatar.jpg"
     imageTitle = "头像"
@@ -82,12 +82,8 @@ enableEmoji = true
   [[params.socialIcons]]
     name = "github"
     title = "GitHub"
-    url = "https://github.com/yourname"
+    url = "https://github.com/online7875"
 
-  [[params.socialIcons]]
-    name = "linkedin"
-    title = "LinkedIn"
-    url = "https://www.linkedin.com/in/yourname"
 
   [[params.socialIcons]]
     name = "rss"

@@ -42,6 +42,9 @@ ShowBreadCrumbs: false
 
 ## 联系方式
 
-- 邮箱：[you@example.com](mailto:you@example.com)
-- GitHub：[github.com/yourname](https://github.com/yourname)
-- LinkedIn：[linkedin.com/in/yourname](https://www.linkedin.com/in/yourname)
+- 邮箱：[online7875@gmail.com][1]
+- GitHub：[github.com/online7875][2]
+
+
+[1]:	mailto:online7875@gmail.com
+[2]:	https://github.com/online7875
