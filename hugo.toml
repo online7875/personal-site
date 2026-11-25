@@ -108,10 +108,10 @@ enableEmoji = true
   # 到 https://giscus.app 生成下面四个值后填入即可启用
   # repo 形如 "yourname/personal-site"，repoId / categoryId 是 giscus.app 给出的 ID
   [params.giscus]
-    repo = ""
-    repoId = ""
+    repo = "online7875/personal-site"
+    repoId = "R_kgDOV69sjw"
     category = "Announcements"
-    categoryId = ""
+    categoryId = "DIC_kwDOV69sj84DL6Zb"
     mapping = "pathname"
     strict = "0"
     reactionsEnabled = "1"
